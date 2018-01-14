@@ -8,7 +8,7 @@ else
   echo $DIROUT" created. Find your new files there."
 fi 
 for FN in $(ls -1 $DIRIN) ; do
-  FNOUT=$(exiftool -d "%Y%m%d_%H%M%S" -CreateDate "$FN" |  head -n 1 | cut -d : -f 2 | cut -d " " -f 2)
+  FNOUT=$(exiftool -d "%Y-%m-%d_%H-%M-%S" -CreateDate "$FN" |  head -n 1 | cut -d : -f 2 | cut -d " " -f 2)
   if [ -z $FNOUT ] ; then
     echo $FN" copied unchanged"
     cp -i "$FN" $DIROUT
